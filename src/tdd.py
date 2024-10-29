@@ -10,7 +10,7 @@ class StringCalculator:
         if numbers.startswith("//"):
             delimiter, numbers = self._extract_delimiter(numbers)
         else:
-            delimiter = ','  # Default delimiter is a comma
+            delimiter = ','
 
         # Replace new lines with the delimiter and split the string
         numbers = re.sub(r'[\n]', delimiter, numbers)
@@ -21,7 +21,7 @@ class StringCalculator:
         negatives = []
 
         for num in number_list:
-            if num.strip():  # Ignore empty strings
+            if num.strip():
                 n = int(num)
                 if n < 0:
                     negatives.append(n)
@@ -34,5 +34,5 @@ class StringCalculator:
 
     def _extract_delimiter(self, numbers: str):
         parts = numbers.split('\n', 1)
-        delimiter = parts[0][2:]  # Skip "//"
+        delimiter = parts[0][2:]
         return delimiter, parts[1]
